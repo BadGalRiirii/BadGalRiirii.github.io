@@ -1550,6 +1550,173 @@ footer::before {
   .channel-arrow { opacity:.4 !important; }
   .project-item::before { transform:scaleY(.08); opacity:.5; }
 }
+
+/* ════════════════════════════════
+   PARALLAX — SWORDFISH II + STARS
+════════════════════════════════ */
+#hero { position:relative; overflow:hidden; }
+
+#star-field {
+  position:absolute; inset:0; z-index:0;
+  pointer-events:none; opacity:.85;
+}
+
+#ship-wrap {
+  position:absolute; top:0; left:0;
+  z-index:1; pointer-events:none;
+  will-change:transform;
+}
+
+#swordfish {
+  width:400px; display:block;
+  opacity:.62;
+  filter:
+    drop-shadow(0 0 22px rgba(190,50,37,.55))
+    drop-shadow(0 0 48px rgba(190,50,37,.18))
+    drop-shadow(0 0 10px rgba(201,123,10,.35));
+}
+
+.hero-right { z-index:2; }
+
+@media(max-width:900px) {
+  #swordfish { width:230px; opacity:.42; }
+  #star-field { opacity:.65; }
+}
+@media(max-width:480px) {
+  #swordfish { width:175px; opacity:.32; }
+}
+
+/* ════════════════════════════════
+   MOBILE v2 — FULL OVERHAUL
+════════════════════════════════ */
+@media(max-width:900px) {
+
+  /* ── Hero ── */
+  #hero { min-height:100svh; }
+
+  .hero-left {
+    border-right:none !important;
+    background-image:
+      linear-gradient(rgba(201,123,10,.022) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,123,10,.022) 1px, transparent 1px),
+      radial-gradient(ellipse 90% 55% at 88% 12%, rgba(190,50,37,.08) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 40% at 8% 82%, rgba(37,104,170,.055) 0%, transparent 65%);
+    background-size:42px 42px, 42px 42px, 100% 100%, 100% 100%;
+  }
+
+  .hero-ep { font-size:.58rem; margin-bottom:1.6rem; }
+  .hero-sub { font-size:.86rem; line-height:1.82; }
+  .hero-actions { margin-bottom:.25rem; }
+
+  /* ── Ticker ── */
+  .ticker-track span { font-size:.56rem; letter-spacing:.13em; padding:.38rem .75rem; }
+
+  /* ── Section separators ── */
+  #about,#skills,#projects,#contact { border-top:1px solid var(--hairline); }
+
+  /* ── Section header ── */
+  .section-aside { display:none; }
+  .section-ep { font-size:.58rem; }
+
+  /* ── About / Bounty card ── */
+  .bounty-card-header { padding:.65rem 1rem; }
+  .bounty-card-title { font-size:.78rem; letter-spacing:.28em; }
+  .bounty-card-id { font-size:.52rem; }
+  .bounty-row { padding:.6rem 1rem; }
+  .bounty-key { font-size:.55rem; }
+  .bounty-val { font-size:.66rem; }
+
+  /* ── Skills ── */
+  .skill-panel { padding:1.5rem 1.2rem; }
+  .skill-panel-label { font-size:.55rem; margin-bottom:1.1rem; }
+  .skill-list { gap:.5rem; }
+  .skill-list li { font-size:.67rem; }
+
+  /* ── Projects ── */
+  .project-item { padding:1.65rem 1.25rem; gap:.6rem; }
+  .project-body { padding-top:0; }
+  .project-tag { font-size:.52rem; margin-bottom:.65rem; }
+  .project-name { font-size:1.65rem; margin-bottom:.5rem; }
+  .project-desc { font-size:.85rem; line-height:1.75; max-width:100%; }
+  .project-stack { margin-top:1rem; gap:.3rem; }
+  .project-stack span { font-size:.52rem; padding:.17rem .5rem; }
+  .project-meta { padding-top:.9rem; margin-top:0; }
+  .proj-link { font-size:.62rem; gap:.5rem; }
+  .proj-link svg { width:12px; height:12px; }
+
+  /* ── Contact ── */
+  .rfb-channel-label { font-size:.54rem; padding-bottom:.5rem; margin-bottom:.65rem; }
+  .channel { padding:1rem 1.1rem; margin-bottom:.45rem; border-radius:1px; }
+  .channel-name { font-size:.64rem; }
+  .channel-handle { font-size:.58rem; }
+  .rfb-cta { gap:.7rem; }
+  .rfb-end-card { margin-top:3.5rem; padding-top:2rem; }
+  .rfb-see-you { font-size:1.35rem; opacity:.2; }
+  .rfb-session-close { font-size:.56rem; }
+
+  /* ── Nav mobile ── */
+  .nav-mobile { padding:4.75rem 1.75rem 2rem; }
+  .nav-mobile a { font-size:.74rem; letter-spacing:.2em; min-height:52px; }
+
+  /* ── Footer ── */
+  .footer-center { display:none; }
+  footer { gap:.45rem; padding-top:1rem; }
+  .footer-left,.footer-right { font-size:.55rem; }
+}
+
+@media(max-width:480px) {
+  /* Hero */
+  .hero-left { padding:5.25rem 1.25rem 3rem; }
+  .hero-ep { font-size:.54rem; margin-bottom:1.3rem; }
+  .hero-title { font-size:2.75rem; line-height:.87; margin-bottom:1.5rem; }
+  .hero-sub { font-size:.84rem; margin-bottom:2.25rem; }
+  .hero-actions { gap:.5rem; }
+  .hero-mobile-badge { font-size:.52rem; margin-top:1.4rem; }
+
+  /* Section */
+  .section-ep { font-size:.54rem; }
+  .section-title { font-size:1.85rem; }
+  .section-wrap { padding:3.25rem 1.2rem; }
+  .rfb-wrap { padding:3.25rem 1.2rem 2.75rem; }
+
+  /* About */
+  .about-grid { gap:2rem; }
+  .about-body p { font-size:.86rem; line-height:1.9; margin-bottom:1.25rem; }
+  .about-quote { padding:1.1rem 0 1.1rem 1.1rem; margin:1.75rem 0; }
+  .about-quote p { font-size:.74rem; }
+  .about-quote cite { font-size:.54rem; }
+
+  /* Skills */
+  .skills-grid { grid-template-columns:1fr; }
+  .skill-panel { padding:1.2rem 1.1rem; }
+
+  /* Projects */
+  .project-item { padding:1.5rem 1.1rem; }
+  .project-name { font-size:1.4rem; }
+  .project-desc { font-size:.82rem; }
+
+  /* Contact */
+  .rfb-headline { font-size:1.95rem; line-height:.9; }
+  .rfb-body { font-size:.83rem; }
+  .rfb-cta { flex-direction:column; }
+  .rfb-cta .btn { text-align:center; justify-content:center; }
+  .channel { padding:.9rem 1rem; }
+  .channel-name { font-size:.62rem; }
+
+  /* Buttons */
+  .btn { padding:.88rem 1.4rem; font-size:.58rem; }
+
+  /* Intro adjustments */
+  .intro-title { font-size:2.8rem; }
+  .intro-session { font-size:.62rem; margin-bottom:1.4rem; }
+  .intro-corner.tr,.intro-corner.br { display:none; }
+  .intro-bar-wrap { margin-top:2.25rem; width:min(260px,80vw); }
+
+  /* Bounty card */
+  .bounty-row { padding:.55rem .9rem; }
+  .bounty-key { font-size:.52rem; }
+  .bounty-val { font-size:.62rem; }
+}
 </style>
 </head>
 <body>
@@ -1635,6 +1802,91 @@ footer::before {
 
 <!-- ════ HERO ════ -->
 <section id="hero">
+
+<!-- ── PARALLAX SPACE LAYER ── -->
+<canvas id="star-field" aria-hidden="true"></canvas>
+<div id="ship-wrap" aria-hidden="true">
+<svg id="swordfish" viewBox="0 0 460 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="eng-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#EFA030"/>
+      <stop offset="40%" stop-color="#C97B0A" stop-opacity=".55"/>
+      <stop offset="100%" stop-color="#C97B0A" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="sf-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Engine exhaust -->
+  <path d="M344,68 Q390,62 450,56 Q390,72 344,77 Z" fill="rgba(201,123,10,.14)"/>
+  <path d="M344,83 Q390,88 450,95 Q390,88 344,93 Z" fill="rgba(201,123,10,.11)"/>
+  <circle cx="390" cy="66" r="18" fill="rgba(201,123,10,.06)"/>
+  <circle cx="390" cy="93" r="18" fill="rgba(201,123,10,.06)"/>
+
+  <!-- Cannon barrel -->
+  <rect x="0" y="77" width="152" height="6" rx="3" fill="#9B1E16"/>
+  <rect x="1" y="78" width="148" height="4" rx="2" fill="#BE3225"/>
+  <circle cx="4" cy="80" r="5.5" fill="rgba(239,160,48,.4)" filter="url(#sf-glow)"/>
+  <!-- Barrel struts -->
+  <rect x="84" y="73" width="4" height="14" rx="1" fill="#3A0C08"/>
+  <rect x="112" y="72" width="3" height="16" rx="1" fill="#3A0C08"/>
+
+  <!-- Main fuselage -->
+  <path d="M92,57 C138,41 198,43 278,57 L338,70 L348,80 L338,90 L278,103 C198,117 138,119 92,103 L78,80 Z" fill="#4A1008"/>
+  <path d="M98,61 C142,47 200,49 276,61 L334,72 L344,80 L334,88 L276,99 C200,113 142,113 98,99 L84,80 Z" fill="#6E1A12"/>
+  <!-- Hull sheen -->
+  <path d="M102,66 C148,54 202,56 272,66 L330,75" stroke="rgba(190,50,37,.3)" stroke-width="1.2" fill="none"/>
+  <!-- Side accents -->
+  <path d="M130,65 L200,59 L215,62 L142,72 Z" fill="rgba(190,50,37,.1)"/>
+  <path d="M130,95 L200,101 L215,98 L142,88 Z" fill="rgba(190,50,37,.1)"/>
+
+  <!-- Upper delta wing -->
+  <path d="M152,59 L194,10 L206,8 L274,54 L232,66 Z" fill="#5C1208"/>
+  <path d="M163,61 L199,21 L266,56 L234,67 Z" fill="#7E1C14"/>
+  <line x1="200" y1="14" x2="270" y2="57" stroke="#BE3225" stroke-width="1" opacity=".35"/>
+  <line x1="180" y1="37" x2="252" y2="61" stroke="#BE3225" stroke-width=".6" opacity=".2"/>
+  <!-- Wing tip light -->
+  <circle cx="205" cy="9" r="5" fill="rgba(239,160,48,.8)" filter="url(#sf-glow)"/>
+  <circle cx="205" cy="9" r="2.5" fill="#EFA030"/>
+
+  <!-- Lower delta wing -->
+  <path d="M152,101 L194,150 L206,152 L274,106 L232,94 Z" fill="#5C1208"/>
+  <path d="M163,99 L199,139 L266,104 L234,93 Z" fill="#7E1C14"/>
+  <line x1="200" y1="146" x2="270" y2="103" stroke="#BE3225" stroke-width="1" opacity=".35"/>
+  <line x1="180" y1="123" x2="252" y2="99" stroke="#BE3225" stroke-width=".6" opacity=".2"/>
+  <!-- Wing tip light -->
+  <circle cx="205" cy="151" r="5" fill="rgba(239,160,48,.8)" filter="url(#sf-glow)"/>
+  <circle cx="205" cy="151" r="2.5" fill="#EFA030"/>
+
+  <!-- Cockpit -->
+  <ellipse cx="248" cy="80" rx="30" ry="15" fill="#080414"/>
+  <ellipse cx="248" cy="79" rx="25" ry="11" fill="rgba(37,104,170,.22)"/>
+  <ellipse cx="248" cy="80" rx="30" ry="15" stroke="#BE3225" stroke-width="1.4" fill="none"/>
+  <path d="M226,73 Q240,68 258,73" stroke="rgba(122,174,200,.55)" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+  <line x1="248" y1="65" x2="248" y2="95" stroke="#BE3225" stroke-width=".6" opacity=".25"/>
+
+  <!-- Engine pods -->
+  <path d="M290,62 L344,67 L348,72 L344,79 L290,74 Z" fill="#180810"/>
+  <path d="M292,63 L342,68 L346,73 L342,78 L292,73 Z" stroke="#BE3225" stroke-width=".8" fill="none"/>
+  <path d="M290,98 L344,93 L348,88 L344,81 L290,86 Z" fill="#180810"/>
+  <path d="M292,97 L342,92 L346,87 L342,82 L292,87 Z" stroke="#BE3225" stroke-width=".8" fill="none"/>
+
+  <!-- Engine outlets -->
+  <ellipse cx="347" cy="72.5" rx="7" ry="5" fill="#080414" stroke="#BE3225" stroke-width=".9"/>
+  <ellipse cx="347" cy="87.5" rx="7" ry="5" fill="#080414" stroke="#BE3225" stroke-width=".9"/>
+  <ellipse cx="347" cy="72.5" rx="4.5" ry="3" fill="url(#eng-glow)" filter="url(#sf-glow)"/>
+  <ellipse cx="347" cy="87.5" rx="4.5" ry="3" fill="url(#eng-glow)" filter="url(#sf-glow)"/>
+  <ellipse cx="347" cy="72.5" rx="2" ry="1.5" fill="#EFA030"/>
+  <ellipse cx="347" cy="87.5" rx="2" ry="1.5" fill="#EFA030"/>
+
+  <!-- Fuselage panel lines -->
+  <path d="M98,70 Q195,65 288,69" stroke="rgba(234,217,184,.05)" stroke-width=".7" fill="none"/>
+  <path d="M98,90 Q195,95 288,91" stroke="rgba(234,217,184,.05)" stroke-width=".7" fill="none"/>
+</svg>
+</div>
+
   <div class="hero-left">
     <p class="hero-ep">Gate 7 — Personal Bounty</p>
 
@@ -2308,6 +2560,115 @@ tick(); setInterval(tick,1000);
   ham.addEventListener('click', toggle);
   panel.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
   document.addEventListener('keydown', e => { if(e.key==='Escape') close(); });
+})();
+
+/* ── SWORDFISH II PARALLAX + STAR FIELD ── */
+(function(){
+  const canvas   = document.getElementById('star-field');
+  const shipWrap = document.getElementById('ship-wrap');
+  const hero     = document.getElementById('hero');
+  if(!canvas||!shipWrap||!hero) return;
+
+  const ctx = canvas.getContext('2d');
+
+  /* resize canvas to hero dimensions */
+  function resize(){
+    canvas.width  = hero.offsetWidth;
+    canvas.height = hero.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize, {passive:true});
+
+  /* ── star layers: far / mid / near ── */
+  const layers = [
+    {n:85,  rMin:.35, rMax:.8,  spd:.12, aBase:.28},
+    {n:42,  rMin:.8,  rMax:1.5, spd:.28, aBase:.50},
+    {n:18,  rMin:1.5, rMax:2.4, spd:.55, aBase:.80},
+  ];
+  const stars = [];
+  layers.forEach(l=>{
+    for(let i=0;i<l.n;i++) stars.push({
+      x:   Math.random(),
+      y:   Math.random(),
+      r:   l.rMin + Math.random()*(l.rMax-l.rMin),
+      a:   l.aBase*(0.45+Math.random()*0.55),
+      spd: l.spd,
+      twk: Math.random()*Math.PI*2,
+      ts:  .012+Math.random()*.025,
+    });
+  });
+
+  /* ── ship state ── */
+  let scrollY   = 0;
+  let curX      = null, curY = null, curRot = 0;
+  let lastScroll = 0, vel = 0;
+
+  function getProgress(){
+    const h = hero.offsetHeight || 1;
+    return Math.max(0, Math.min(1, scrollY / h));
+  }
+
+  window.addEventListener('scroll',()=>{ scrollY = window.scrollY; },{passive:true});
+
+  /* ── star draw loop ── */
+  function drawStars(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    const p = getProgress();
+
+    stars.forEach(s=>{
+      s.twk += s.ts;
+      const alpha = s.a*(0.58+Math.sin(s.twk)*0.42);
+      /* parallax: near layers shift more as hero scrolls */
+      const oy  = p * s.spd * canvas.height * 0.55;
+      const sy  = ((s.y*canvas.height - oy) % canvas.height + canvas.height) % canvas.height;
+      const sx  = s.x * canvas.width;
+
+      ctx.beginPath();
+      ctx.arc(sx, sy, s.r, 0, Math.PI*2);
+      ctx.fillStyle = `rgba(234,217,184,${alpha.toFixed(3)})`;
+      ctx.fill();
+    });
+
+    requestAnimationFrame(drawStars);
+  }
+
+  /* ── ship animation loop ── */
+  function animShip(){
+    const p   = getProgress();
+    const vw  = canvas.width;
+    const vh  = canvas.height;
+    const mob = vw <= 900;
+
+    /* trajectory: lower-right → upper-left across hero */
+    const sx = mob ? vw*0.08  : vw*0.50;
+    const sy = mob ? vh*0.52  : vh*0.34;
+    const ex = mob ? -vw*0.28 : vw*0.04;
+    const ey = mob ? -vh*0.18 : -vh*0.10;
+
+    const tx = sx + (ex-sx)*p;
+    const ty = sy + (ey-sy)*p;
+
+    /* initialise on first frame */
+    if(curX===null){ curX=tx; curY=ty; }
+
+    /* scroll velocity for tilt */
+    vel = (scrollY - lastScroll) * 0.6;
+    lastScroll = scrollY;
+
+    /* lerp position + rotation */
+    curX   += (tx - curX)   * 0.05;
+    curY   += (ty - curY)   * 0.05;
+    curRot += (-vel - curRot) * 0.09;
+    curRot  = Math.max(-22, Math.min(22, curRot));
+
+    shipWrap.style.transform =
+      `translate3d(${Math.round(curX)}px,${Math.round(curY)}px,0) rotate(${curRot.toFixed(2)}deg)`;
+
+    requestAnimationFrame(animShip);
+  }
+
+  drawStars();
+  animShip();
 })();
 </script>
 </body>
