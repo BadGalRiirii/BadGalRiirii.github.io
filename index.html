@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>SESSION.01 — DEV PORTFOLIO</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1082,29 +1082,57 @@ footer {
    MOBILE
 ════════════════════════════════ */
 @media (max-width:900px) {
-  nav { padding:1rem 1.5rem; }
+  /* ── Nav ── */
+  nav { padding:max(1rem, env(safe-area-inset-top)) 1.5rem 1rem; }
   .nav-links, .nav-status { display:none; }
   .nav-ham { display:flex; }
+
+  /* ── Hero ── */
   #hero { grid-template-columns:1fr; }
   .hero-right { display:none; }
-  .hero-left { padding:7rem 1.5rem 4rem; }
-  .hero-sub { max-width:100%; }
-  .section-wrap { padding:5rem 1.5rem; }
+  .hero-left { padding:6.5rem 1.5rem 3.5rem; }
+  .hero-sub { max-width:100%; font-size:.88rem; line-height:1.8; }
+  .hero-mobile-badge { display:flex; }
+
+  /* ── Sections ── */
+  .section-wrap { padding:4.5rem 1.5rem; }
+  .section-header { flex-direction:column; align-items:flex-start; gap:.5rem; margin-bottom:2.5rem; }
+
+  /* ── About ── */
   .about-grid { grid-template-columns:1fr; gap:2.5rem; }
+
+  /* ── Skills ── */
   .skills-grid { grid-template-columns:1fr 1fr; }
-  .project-item { grid-template-columns:1fr; gap:.75rem; }
-  .project-num, .project-meta { display:none; }
-  .rfb-wrap { padding:5rem 1.5rem 4rem; }
-  .rfb-grid { grid-template-columns:1fr; gap:3rem; }
+  .skill-panel { padding:1.4rem 1.2rem; }
+  .skill-list li { font-size:.68rem; }
+
+  /* ── Projects — show links on mobile ── */
+  .project-item { grid-template-columns:1fr; gap:.5rem; padding:1.75rem 1.25rem; }
+  .project-num { display:none; }
+  .project-meta { text-align:left; padding-top:.75rem; border-top:1px solid var(--hairline); margin-top:.25rem; }
+  .project-links-col { flex-direction:row; gap:1.5rem; align-items:center; justify-content:flex-start; }
+  .project-year { display:none; }
+  .proj-link { font-size:.65rem; color:var(--smoke); min-height:44px; display:flex; align-items:center; gap:.4rem; }
+
+  /* ── Contact ── */
+  .rfb-wrap { padding:4.5rem 1.5rem 3.5rem; }
+  .rfb-grid { grid-template-columns:1fr; gap:2.5rem; }
   .rfb-end-card { flex-direction:column; gap:1.5rem; text-align:center; }
   .rfb-session-close { text-align:center; }
-  footer { flex-direction:column; gap:.75rem; text-align:center; padding:1.5rem; }
-  .footer-left,.footer-right { text-align:center; }
-  .section-header { flex-direction:column; align-items:flex-start; gap:.75rem; }
-  .channel { flex-wrap:wrap; gap:.35rem; }
-  .channel-arrow { margin-left:auto; }
   .rfb-headline { font-size:clamp(2.4rem,8vw,4rem); }
+  .rfb-body { max-width:100%; }
+  .channel { flex-wrap:wrap; gap:.3rem; padding:.9rem 1rem; }
+  .channel-handle { font-size:.6rem; max-width:calc(100% - 2rem); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .channel-arrow { margin-left:auto; opacity:.6; }
+
+  /* ── Footer ── */
+  footer { flex-direction:column; gap:.75rem; text-align:center; padding:1.25rem 1.5rem max(1.25rem, env(safe-area-inset-bottom)); }
+  .footer-left,.footer-right { text-align:center; }
+
+  /* ── Bounty card ── */
   .bounty-card { font-size:.9rem; }
+  .bounty-val { font-size:.68rem; }
+  .bounty-key { font-size:.55rem; }
 }
 
 @media (max-width:480px) {
@@ -1113,15 +1141,21 @@ footer {
   .section-title { font-size:2rem; }
   .rfb-headline { font-size:2.2rem; }
   .intro-title { font-size:3rem; }
+  .intro-session { margin-bottom:1.5rem; font-size:.65rem; }
+  .intro-sub { margin-top:1.5rem; }
+  .intro-bar-wrap { margin-top:2.5rem; }
+  .intro-corner { font-size:.5rem; letter-spacing:.1em; }
   .project-tag { font-size:.5rem; }
   .project-name { font-size:1.5rem; }
-  .project-desc { font-size:.82rem; }
-  .btn { padding:.65rem 1.25rem; font-size:.58rem; }
+  .project-desc { font-size:.84rem; }
+  .btn { padding:.85rem 1.5rem; font-size:.6rem; }
   .hero-actions { gap:.6rem; }
   .about-body p { font-size:.88rem; }
-  .rfb-body { font-size:.85rem; }
-  .channel { padding:.85rem .9rem; }
+  .rfb-body { font-size:.86rem; }
   .rfb-cta { flex-direction:column; }
+  .channel { padding:.8rem .9rem; }
+  .section-wrap { padding:3.5rem 1.25rem; }
+  .rfb-wrap { padding:3.5rem 1.25rem 3rem; }
 }
 
 @media (prefers-reduced-motion:reduce) {
@@ -1294,7 +1328,7 @@ footer {
 /* ── TOUCH DEVICE — HIDE CUSTOM CURSOR ── */
 @media (hover:none) {
   body { cursor:auto; }
-  .cur,.cur-ring { display:none; }
+  .cur,.cur-ring { display:none !important; }
 }
 
 /* ── HAMBURGER NAV ── */
@@ -1313,35 +1347,39 @@ footer {
 .nav-ham.open span:nth-child(3) { transform:translateY(-6px) rotate(-45deg); }
 
 .nav-mobile {
-  display:none; position:fixed;
+  position:fixed;
   top:0; left:0; right:0;
   background:rgba(10,8,16,.97);
   backdrop-filter:blur(20px);
   -webkit-backdrop-filter:blur(20px);
   padding:5.5rem 2rem 2rem;
   z-index:498;
-  flex-direction:column; gap:0;
+  display:flex; flex-direction:column; gap:0;
   border-bottom:1px solid var(--hairline2);
-  transform:translateY(-8px); opacity:0;
-  transition:opacity .22s ease, transform .22s ease;
+  transform:translateY(-10px); opacity:0;
+  visibility:hidden;
+  transition:opacity .25s ease, transform .25s ease, visibility 0s linear .25s;
   pointer-events:none;
 }
 .nav-mobile.open {
-  display:flex; opacity:1;
+  opacity:1; visibility:visible;
   transform:translateY(0);
   pointer-events:auto;
+  transition:opacity .25s ease, transform .25s ease, visibility 0s;
 }
+@media(min-width:901px) { .nav-mobile { display:none !important; } }
 .nav-mobile a {
   font-family:'Space Mono',monospace;
   font-size:.8rem; letter-spacing:.22em;
   text-transform:uppercase;
   color:var(--dim); text-decoration:none;
-  padding:1.1rem 0;
+  padding:1.2rem 0;
   border-bottom:1px solid var(--hairline);
   transition:color .2s;
+  min-height:48px; display:flex; align-items:center;
 }
 .nav-mobile a::before { content:'// '; opacity:.3; }
-.nav-mobile a:hover { color:var(--gold); }
+.nav-mobile a:hover, .nav-mobile a:active { color:var(--gold); }
 
 /* ── MOBILE ── */
 @media(max-width:900px) { .hero-orb { display:none; } }
@@ -1464,6 +1502,54 @@ footer::before {
   letter-spacing: .08em;
   transition: letter-spacing .2s;
 }
+
+/* ════════════════════════════════
+   MOBILE: HERO BADGE
+════════════════════════════════ */
+.hero-mobile-badge {
+  display:none;
+  align-items:center; gap:.6rem;
+  margin-top:1.75rem;
+  font-family:'Space Mono',monospace;
+  font-size:.58rem;
+  letter-spacing:.18em;
+  color:var(--dim);
+  text-transform:uppercase;
+}
+.hero-badge-pip {
+  width:6px; height:6px;
+  border-radius:50%;
+  background:#5CBF6A;
+  box-shadow:0 0 6px #5CBF6A;
+  flex-shrink:0;
+  animation:pip 2.5s ease infinite;
+}
+
+/* ════════════════════════════════
+   TOUCH: ACTIVE STATES + FIXES
+════════════════════════════════ */
+@media(hover:none) {
+  .btn { cursor:pointer; }
+  .btn-solid:active  { background:var(--gold); box-shadow:0 0 18px rgba(201,123,10,.3); }
+  .btn-ghost:active  { border-color:rgba(239,160,48,.45); color:var(--gold); }
+  .project-item:active { background:var(--lift); }
+  .project-item:active::before { transform:scaleY(1); }
+  .proj-link:active { color:var(--gold); }
+  .channel:active { border-color:rgba(201,123,10,.35); background:rgba(201,123,10,.04); }
+  .channel:active::before { transform:scaleY(1); }
+  .channel:active .channel-handle { text-shadow:0 0 10px rgba(143,188,106,.55); }
+  .skill-panel:active { background:var(--lift); }
+  .skill-list li:active { color:var(--gold); transform:translateX(4px); }
+  .nav-mobile a:active { color:var(--gold); }
+  .data-row:active { background:rgba(234,217,184,.02); }
+  .bounty-row:active { background:rgba(234,217,184,.02); }
+}
+
+@media(hover:none) and (max-width:900px) {
+  .skill-list li:hover { transform:none; color:var(--smoke); }
+  .channel-arrow { opacity:.4 !important; }
+  .project-item::before { transform:scaleY(.08); opacity:.5; }
+}
 </style>
 </head>
 <body>
@@ -1567,6 +1653,11 @@ footer::before {
     <div class="hero-actions">
       <a href="#projects" class="btn btn-solid">See the work</a>
       <a href="#contact" class="btn btn-ghost">Open channel</a>
+    </div>
+
+    <div class="hero-mobile-badge" aria-hidden="true">
+      <span class="hero-badge-pip"></span>
+      Available · Fresh Graduate 2026
     </div>
   </div>
 
